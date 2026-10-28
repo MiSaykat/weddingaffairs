@@ -1,0 +1,345 @@
+/* ==========================================================================
+   Wedding Affairs - Luxury Wedding Portfolio & Studio
+   Styles & Aesthetics
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Great+Vibes&family=Hind+Siliguri:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --gold-primary: #d4af37;
+  --gold-secondary: #f3e5ab;
+  --gold-dark: #997819;
+  --gold-glow: rgba(212, 175, 55, 0.35);
+  --rose-gold: #c58f7a;
+  --dark-bg: #09090b;
+  --dark-surface: #121217;
+  --dark-card: #17171e;
+  --dark-border: rgba(212, 175, 55, 0.18);
+  --text-main: #f8f6f0;
+  --text-muted: #a3a19b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Luxury Font Families */
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', 'Hind Siliguri', serif;
+}
+
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-sans-custom {
+  font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+}
+
+/* Gold Gradient Text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fff3c4 0%, #d4af37 50%, #aa7c11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-text-light {
+  background: linear-gradient(135deg, #ffffff 0%, #f3e5ab 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.gold-border-glow:hover {
+  border-color: rgba(212, 175, 55, 0.8);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(18, 18, 23, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.glass-nav {
+  background: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.glass-card {
+  background: rgba(23, 23, 30, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2824;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Gold Buttons */
+.btn-gold {
+  background: linear-gradient(135deg, #e6c280 0%, #d4af37 50%, #b8860b 100%);
+  color: #0d0c07;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #f7dca3 0%, #e5c04e 50%, #c99516 100%);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.btn-gold:hover::after {
+  transform: rotate(30deg) translateX(100%);
+}
+
+.btn-outline-gold {
+  border: 1px solid #d4af37;
+  color: #f3e5ab;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.15);
+  color: #ffffff;
+  border-color: #f3e5ab;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Floating Golden Particles Canvas */
+#particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Music Equalizer Bars */
+.sound-wave-bar {
+  display: inline-block;
+  width: 3px;
+  background-color: #d4af37;
+  border-radius: 2px;
+  animation: soundBounce 1.2s infinite ease-in-out;
+}
+
+.sound-wave-bar:nth-child(1) { height: 8px; animation-delay: 0.1s; }
+.sound-wave-bar:nth-child(2) { height: 16px; animation-delay: 0.3s; }
+.sound-wave-bar:nth-child(3) { height: 12px; animation-delay: 0.2s; }
+.sound-wave-bar:nth-child(4) { height: 20px; animation-delay: 0.4s; }
+
+.paused .sound-wave-bar {
+  animation: none !important;
+  height: 4px !important;
+}
+
+@keyframes soundBounce {
+  0%, 100% { height: 6px; }
+  50% { height: 20px; }
+}
+
+/* Image Hover Zoom */
+.gallery-img-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-img-container img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.gallery-card:hover .gallery-img-container img {
+  transform: scale(1.08);
+  filter: brightness(1.08);
+}
+
+.gallery-overlay {
+  opacity: 0;
+  transition: all 0.4s ease;
+  background: linear-gradient(to top, rgba(9, 9, 11, 0.95) 0%, rgba(9, 9, 11, 0.4) 60%, transparent 100%);
+}
+
+.gallery-card:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* Decorative Ornaments */
+.ornament-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 12px 0 24px;
+}
+
+.ornament-line::before,
+.ornament-line::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+/* Lightbox Modal */
+#lightbox-modal {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#lightbox-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Shimmer badge */
+.badge-luxe {
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #f3e5ab;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Package Card Popular Ribbon */
+.ribbon-popular {
+  position: absolute;
+  top: 18px;
+  right: -32px;
+  background: linear-gradient(135deg, #d4af37, #997819);
+  color: #000000;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  padding: 4px 38px;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+/* WhatsApp Pulse */
+@keyframes pulseRing {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0.3; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+.whatsapp-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  animation: pulseRing 2s infinite ease-out;
+}
+
+/* Vinyl Disc Slow Rotation */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 9s linear infinite;
+}
+
+/* Team Card Aesthetics */
+.team-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+/* Shift Pill Selection Buttons */
+.shift-pill {
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.25s ease-in-out;
+}
+.shift-pill:hover {
+  transform: translateY(-1px);
+}
+
+

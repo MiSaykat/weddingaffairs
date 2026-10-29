@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Wedding Affairs - Luxury Wedding Portfolio & Studio
  * Interactive Controller & Features
  */
@@ -909,21 +909,98 @@ function applyCustomQuoteToForm() {
   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 }
 
+function toBengaliNumber(n) {
+  if (n === null || n === undefined) return '';
+  var str = typeof n === 'number' ? n.toLocaleString('en-US') : String(n);
+  var bnDigits = ['\u09E6', '\u09E7', '\u09E8', '\u09E9', '\u09EA', '\u09EB', '\u09EC', '\u09ED', '\u09EE', '\u09EF'];
+  return str.replace(/[0-9]/g, function(d) { return bnDigits[+d]; });
+}
+
 // --- Package Rates & Pricing Multiplier Configuration ---
 const packageRates = {
   // Royal Mega Collections (Multi-Day Royal Offerings - do NOT double)
-  'The Golden Royale (২ দিন - ৳75,000)': { nameEn: 'The Golden Royale (2-Day Grandeur)', nameBn: 'The Golden Royale (২ দিন)', price: 75000, isRoyal: true },
-  'The Imperial Crown (৩ দিন - ৳135,000)': { nameEn: 'The Imperial Crown (3-Day Grandeur)', nameBn: 'The Imperial Crown (৩ দিন)', price: 135000, isRoyal: true },
-  'The Kohinoor Maharaja (ভিআইপি ডেস্টিনেশন - ৳195,000)': { nameEn: 'The Kohinoor Maharaja (VIP Destination)', nameBn: 'The Kohinoor Maharaja (ভিআইপি)', price: 195000, isRoyal: true },
+  'The Golden Royale (২ দিন - ৳75,000)': {
+    nameEn: 'The Golden Royale (2-Day Grandeur)',
+    nameBn: 'The Golden Royale (২ দিন)',
+    fullNameBn: 'The Golden Royale (২ দিনব্যাপী গ্র্যান্ড কাভারেজ)',
+    price: 75000,
+    isRoyal: true,
+    services: '২ দিনব্যাপী রাজকীয় কাভারেজ • সম্পূর্ণ সিনিয়র টিম + ড্রোন + লাক্সারি লেদার অ্যালবাম'
+  },
+  'The Imperial Crown (৩ দিন - ৳135,000)': {
+    nameEn: 'The Imperial Crown (3-Day Grandeur)',
+    nameBn: 'The Imperial Crown (৩ দিন)',
+    fullNameBn: 'The Imperial Crown (৩ দিনব্যাপী রাজকীয় কাভারেজ)',
+    price: 135000,
+    isRoyal: true,
+    services: '৩ দিনব্যাপী সম্পূর্ণ গ্র্যান্ড ওয়েডিং কাভারেজ • ভিআইপি সিনেমাটিক টিম + প্রি-ওয়েডিং শুট + ড্রোন'
+  },
+  'The Kohinoor Maharaja (ভিআইপি ডেস্টিনেশন - ৳195,000)': {
+    nameEn: 'The Kohinoor Maharaja (VIP Destination)',
+    nameBn: 'The Kohinoor Maharaja (ভিআইপি)',
+    fullNameBn: 'The Kohinoor Maharaja (ভিআইপি ডেস্টিনেশন কাভারেজ)',
+    price: 195000,
+    isRoyal: true,
+    services: 'অল-ইনক্লুসিভ ভিআইপি ডেস্টিনেশন কাভারেজ • মাস্টার সিনেমাটোগ্রাফি, লাইভ স্ক্রিনিং ও এক্সক্লুসিভ প্রজেক্ট'
+  },
 
   // Single Event Packages (Packages A - G) • 5 Hours Single Shift base price, doubles for double shift
-  'Package A: Classic Aura (৳4,999)': { nameEn: 'Package A: Classic Aura', nameBn: 'প্যাকেজ A: ক্লাসিক অরা', price: 4999, isRoyal: false },
-  'Package B: Cinematic Glance (৳4,999)': { nameEn: 'Package B: Cinematic Glance', nameBn: 'প্যাকেজ B: সিনেমাটিক গ্লান্স', price: 4999, isRoyal: false },
-  'Package C: Grace Duo (৳12,000)': { nameEn: 'Package C: Grace Duo', nameBn: 'প্যাকেজ C: গ্রেস ডুও', price: 12000, isRoyal: false },
-  'Package D: Elegance Premium (৳15,999)': { nameEn: 'Package D: Elegance Premium', nameBn: 'প্যাকেজ D: এলিগ্যান্স প্রিমিয়াম', price: 15999, isRoyal: false },
-  'Package E: Royal Splendor (৳25,999)': { nameEn: 'Package E: Royal Splendor', nameBn: 'প্যাকেজ E: রয়্যাল স্প্লেন্ডার', price: 25999, isRoyal: false },
-  'Package F: Majestic Masterpiece (৳35,999)': { nameEn: 'Package F: Majestic Masterpiece', nameBn: 'প্যাকেজ F: ম্যাজেস্টিক মাস্টারপিস', price: 35999, isRoyal: false },
-  'Package G: Grand Sovereign (৳50,999)': { nameEn: 'Package G: Grand Sovereign', nameBn: 'প্যাকেজ G: গ্র্যান্ড সভরেন', price: 50999, isRoyal: false }
+  'Package A: Classic Aura (৳4,999)': {
+    nameEn: 'Package A: Classic Aura',
+    nameBn: 'প্যাকেজ A: ক্লাসিক অরা',
+    fullNameBn: 'প্যাকেজ A: ক্লাসিক অরা (ফটোগ্রাফি স্পেশাল)',
+    price: 4999,
+    isRoyal: false,
+    services: '১ জন সিনিয়র ফটোগ্রাফার • আনলিমিটেড ফটোশুট • ৫০টি স্পেশালি এডিটেড ছবি • ৫ ঘণ্টা কাভারেজ'
+  },
+  'Package B: Cinematic Glance (৳4,999)': {
+    nameEn: 'Package B: Cinematic Glance',
+    nameBn: 'প্যাকেজ B: সিনেমাটিক গ্লান্স',
+    fullNameBn: 'প্যাকেজ B: সিনেমাটিক গ্লান্স (সিনেমাটোগ্রাফি স্পেশাল)',
+    price: 4999,
+    isRoyal: false,
+    services: '১ জন সিনেমাটোগ্রাফার + ১ জন লাইটম্যান • ফুল ইভেন্ট ভিডিও + ২-৩ মিনিটের ট্রেলার • ৫ ঘণ্টা কাভারেজ'
+  },
+  'Package C: Grace Duo (৳12,000)': {
+    nameEn: 'Package C: Grace Duo',
+    nameBn: 'প্যাকেজ C: গ্রেস ডুও',
+    fullNameBn: 'প্যাকেজ C: গ্রেস ডুও (ফটো ও সিনেমা কম্বো)',
+    price: 12000,
+    isRoyal: false,
+    services: '১ জন সিনিয়র ফটোগ্রাফার + ১ জন সিনেমাটোগ্রাফার • আনলিমিটেড ছবি + 4K সিনেমাটিক টিজার • ১০০টি স্পেশাল এডিটেড ছবি • ৫ ঘণ্টা কাভারেজ'
+  },
+  'Package D: Elegance Premium (৳15,999)': {
+    nameEn: 'Package D: Elegance Premium',
+    nameBn: 'প্যাকেজ D: এলিগ্যান্স প্রিমিয়াম',
+    fullNameBn: 'প্যাকেজ D: এলিগ্যান্স প্রিমিয়াম (ডাবল ফটো ও সিনেমা)',
+    price: 15999,
+    isRoyal: false,
+    services: '২ জন সিনিয়র ফটোগ্রাফার + ১ জন সিনেমাটোগ্রাফার • আনলিমিটেড ছবি + সিনেমাটিক ট্রেলার • ১০০টি স্পেশাল এডিটেড ছবি • ৫ ঘণ্টা কাভারেজ'
+  },
+  'Package E: Royal Splendor (৳25,999)': {
+    nameEn: 'Package E: Royal Splendor',
+    nameBn: 'প্যাকেজ E: রয়্যাল স্প্লেন্ডার',
+    fullNameBn: 'প্যাকেজ E: রয়্যাল স্প্লেন্ডার (৪-সদস্য এক্সক্লুসিভ টিম)',
+    price: 25999,
+    isRoyal: false,
+    services: '৪-সদস্য এক্সক্লুসিভ ক্রু (২ ফটো + ২ সিনেমা) • ড্রোন ফুটেজ + সিনেমাটিক হাইলাইটস • ১০০টি এডিটেড ছবি + প্রিমিয়াম অ্যালবাম • ৫ ঘণ্টা কাভারেজ'
+  },
+  'Package F: Majestic Masterpiece (৳35,999)': {
+    nameEn: 'Package F: Majestic Masterpiece',
+    nameBn: 'প্যাকেজ F: ম্যাজেস্টিক মাস্টারপিস',
+    fullNameBn: 'প্যাকেজ F: ম্যাজেস্টিক মাস্টারপিস (চিফ স্পেশাল ক্রু)',
+    price: 35999,
+    isRoyal: false,
+    services: 'চিফ ফটোগ্রাফার সহ ৫-সদস্য ক্রু • 4K সিনেমাটিক ফিল্ম + ড্রোন শুট • ১০০টি এডিটেড ছবি + এক্সক্লুসিভ স্টোরিবুক অ্যালবাম • ৫ ঘণ্টা কাভারেজ'
+  },
+  'Package G: Grand Sovereign (৳50,999)': {
+    nameEn: 'Package G: Grand Sovereign',
+    nameBn: 'প্যাকেজ G: গ্র্যান্ড সভরেন',
+    fullNameBn: 'প্যাকেজ G: গ্র্যান্ড সভরেন (ফুল ক্রাউন মাস্টারপিস)',
+    price: 50999,
+    isRoyal: false,
+    services: 'সম্পূর্ণ স্টুডিও টিম লিড কাভারেজ • ফুল সিনেমাটিক ফিল্ম + ড্রোন + প্রিমিয়াম ম্যাগাজিন অ্যালবাম • ফুল ডে স্পেশাল কাভারেজ'
+  }
 };
 
 let activeShiftChoice = 'day'; // 'day' | 'night' | 'double'
@@ -952,6 +1029,8 @@ function getSelectedPackageInfo() {
       key: 'Custom Bespoke Package',
       nameEn: 'Custom Bespoke Package',
       nameBn: 'কাস্টম কোটেশন প্যাকেজ',
+      fullNameBn: 'কাস্টম বাজেট কোটেশন (Bespoke Package)',
+      services: 'কাস্টম ক্যালকুলেটর অনুযায়ী নির্বাচিত ডে ও টিম স্পেসিফিকেশন',
       price: customPrice,
       isRoyal: false
     };
@@ -962,10 +1041,13 @@ function getSelectedPackageInfo() {
     key: 'Standard',
     nameEn: 'Standard Wedding Package',
     nameBn: 'স্ট্যান্ডার্ড প্যাকেজ',
-    price: 4999,
+    fullNameBn: 'প্যাকেজ C: গ্রেস ডুও (ফটো ও সিনেমা কম্বো)',
+    services: '১ জন সিনিয়র ফটোগ্রাফার + ১ জন সিনেমাটোগ্রাফার • আনলিমিটেড ছবি + 4K সিনেমাটিক টিজার • ১০০টি স্পেশাল এডিটেড ছবি • ৫ ঘণ্টা কাভারেজ',
+    price: 12000,
     isRoyal: false
   };
 }
+
 
 // --- Shift Selection Management (3 Shifts Only: Day, Night, Double) ---
 function setShiftChoice(choice) {
@@ -1173,61 +1255,163 @@ function closeAvailModal() {
   document.getElementById('avail-modal').classList.add('hidden');
 }
 
+// --- Shift Details Helper for 6-Layer WhatsApp & Modal ---
+function getShiftDetails(shiftKey, isRoyal, price) {
+  const pBn = toBengaliNumber(price);
+  if (shiftKey === 'day') {
+    return {
+      key: 'day',
+      title: '☀️ ডে শিফট (Day Shift • ৫ ঘণ্টা)',
+      schedule: 'দুপুর ১২:০০ PM – বিকাল ৫:০০ PM (১টি শিফট • ৫ ঘণ্টা)',
+      policy: '৫ ঘণ্টা সিঙ্গেল শিফট বেস রেট প্রযোজ্য',
+      multiplier: 1,
+      math: '৳' + pBn + ' × ১ = ৳' + pBn + ' (সিঙ্গেল শিফট রেট)'
+    };
+  } else if (shiftKey === 'night') {
+    return {
+      key: 'night',
+      title: '🌙 নাইট শিফট (Night Shift • ৫ ঘণ্টা)',
+      schedule: 'সন্ধ্যা ৬:০০ PM – রাত ১১:০০ PM (১টি শিফট • ৫ ঘণ্টা)',
+      policy: '৫ ঘণ্টা সিঙ্গেল শিফট বেস রেট প্রযোজ্য',
+      multiplier: 1,
+      math: '৳' + pBn + ' × ১ = ৳' + pBn + ' (সিঙ্গেল শিফট রেট)'
+    };
+  } else {
+    if (isRoyal) {
+      return {
+        key: 'double',
+        title: '⚡ ডাবল শিফট (Double Shift • ফুল ডে)',
+        schedule: 'দুপুর ১২:০০ PM – রাত ১১:০০ PM (একটানা পূর্ণ দিবস)',
+        policy: 'রয়্যাল মেগা কালেকশন নির্ধারিত প্যাকেজ মূল্য (কোনো ডাবলিং নেই)',
+        multiplier: 1,
+        math: '৳' + pBn + ' (রয়্যাল মেগা কালেকশন ফিক্সড রেট)'
+      };
+    } else {
+      const totBn = toBengaliNumber(price * 2);
+      return {
+        key: 'double',
+        title: '⚡ ডাবল শিফট (Double Shift • ফুল ডে)',
+        schedule: 'দুপুর ১২:০০ PM – রাত ১১:০০ PM (একটানা পূর্ণ দিবস)',
+        policy: '৫ ঘণ্টা সিঙ্গেল শিফট / ফুল ডে ডাবল শিফটে দ্বিগুণ মূল্য',
+        multiplier: 2,
+        math: '৳' + pBn + ' × ২ = ৳' + totBn + ' (ফুল ডে দ্বিগুণ রেট)'
+      };
+    }
+  }
+}
+
+// --- Layer-by-Layer WhatsApp Message Generator ---
+function buildWhatsAppPayload(fields) {
+  const name = (fields && fields.name) ? fields.name.trim() : '';
+  const phone = (fields && fields.phone) ? fields.phone.trim() : '';
+  const email = (fields && fields.email) ? fields.email.trim() : '';
+  const date = (fields && fields.date) ? fields.date.trim() : '';
+  const venue = (fields && fields.venue) ? fields.venue.trim() : '';
+  const notes = (fields && fields.notes) ? fields.notes.trim() : '';
+
+  const pkg = getSelectedPackageInfo();
+  const shiftChoice = (fields && fields.shiftChoice) ? fields.shiftChoice : activeShiftChoice;
+  const shiftInfo = getShiftDetails(shiftChoice, pkg.isRoyal, pkg.price);
+  const totalAmount = pkg.price * shiftInfo.multiplier;
+
+  const priceBn = toBengaliNumber(pkg.price);
+  const totalBn = toBengaliNumber(totalAmount);
+
+  const cleanName = name || 'সম্মানিত ক্লায়েন্ট';
+  const cleanPhone = phone || 'N/A';
+  const cleanEmail = email || 'example@gmail.com';
+  const cleanDate = date || 'নির্ধারিত হয়নি';
+  const cleanVenue = venue ? (venue + ' 📍') : 'ভেন্যু এখনও চূড়ান্ত হয়নি 📍';
+  const cleanNotes = notes || 'কাপল পোট্রেট ও ক্যান্ডিড মোমেন্ট বেশি কভার করার অনুরোধ রইল।';
+
+  const waRawText =
+'👑 *নতুন ওয়েডিং বুকিং ইনকোয়ারি — WEDDING AFFAIRS* 👑\n' +
+'━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
+'👤 *লেয়ার ১: ক্লায়েন্ট বিবরণ (Client Info)*\n' +
+'• ক্লায়েন্টের নাম: ' + cleanName + '\n' +
+'• মোবাইল / WhatsApp: ' + cleanPhone + '\n' +
+'• ইমেইল: ' + cleanEmail + '\n\n' +
+'🏛️ *লেয়ার ২: অনুষ্ঠান ও ভেন্যু (Event & Venue)*\n' +
+'• অনুষ্ঠানের সম্ভাব্য তারিখ: ' + cleanDate + '\n' +
+'• ভেন্যুর নাম ও শহর: ' + cleanVenue + '\n\n' +
+'📦 *লেয়ার ৩: নির্বাচিত প্যাকেজ (Package Details)*\n' +
+'• প্যাকেজের নাম: ' + (pkg.fullNameBn || pkg.nameBn || pkg.raw) + '\n' +
+'• মূল প্যাকেজ রেট: ৳' + priceBn + '\n' +
+'• অন্তর্ভুক্ত সার্ভিস: ' + (pkg.services || '১ জন সিনিয়র ফটোগ্রাফার + ১ জন সিনেমাটোগ্রাফার • আনলিমিটেড ছবি + 4K সিনেমাটিক টিজার • ১০০টি স্পেশাল এডিটেড ছবি • ৫ ঘণ্টা কাভারেজ') + '\n\n' +
+'⏰ *লেয়ার ৪: কাভারেজ শিফট নির্বাচন (Shift Selection)*\n' +
+'• নির্বাচিত শিফট: ' + shiftInfo.title + '\n' +
+'• শিডিউল সময়: ' + shiftInfo.schedule + '\n' +
+'• শিফট পলিসি: ' + shiftInfo.policy + '\n\n' +
+'💰 *লেয়ার ৫: বাজেট ও মূল্য হিসাব (Pricing Breakdown)*\n' +
+'• প্যাকেজ রেট: ৳' + priceBn + '\n' +
+'• শিফট হিসাব: ' + shiftInfo.math + '\n' +
+'• সর্বমোট আনুমানিক বাজেট: ৳' + totalBn + '\n\n' +
+'📝 *লেয়ার ৬: বিশেষ অনুরোধ বা নোট (Special Notes)*\n' +
+'• ' + cleanNotes + '\n' +
+'━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
+'💍 *WEDDING AFFAIRS • All About Two Souls*\n' +
+'পশ্চিম খাসবাগ তিন মাথা, রংপুর • 📞 +880 1772-337400';
+
+  const studioWhatsAppNumber = '8801772337400';
+  const waUrl = 'https://wa.me/' + studioWhatsAppNumber + '?text=' + encodeURIComponent(waRawText);
+
+  return {
+    rawText: waRawText,
+    waUrl: waUrl,
+    name: cleanName,
+    phone: cleanPhone,
+    email: cleanEmail,
+    date: cleanDate,
+    venue: cleanVenue,
+    pkg: pkg,
+    shiftInfo: shiftInfo,
+    priceBn: priceBn,
+    totalBn: totalBn,
+    totalAmount: totalAmount
+  };
+}
+
 // --- Inquiry Form Submission & Direct WhatsApp Integration ---
 function handleInquirySubmit(e) {
-  e.preventDefault();
+  if (e && e.preventDefault) e.preventDefault();
 
-  const name = document.getElementById('inquiry-name').value.trim();
-  const phone = document.getElementById('inquiry-phone').value.trim();
-  const email = document.getElementById('inquiry-email').value.trim();
-  const date = document.getElementById('inquiry-date').value;
-  const venue = document.getElementById('inquiry-venue').value.trim();
-  const notes = document.getElementById('inquiry-message').value.trim();
+  const name = document.getElementById('inquiry-name') ? document.getElementById('inquiry-name').value.trim() : '';
+  const phone = document.getElementById('inquiry-phone') ? document.getElementById('inquiry-phone').value.trim() : '';
+  const email = document.getElementById('inquiry-email') ? document.getElementById('inquiry-email').value.trim() : '';
+  const date = document.getElementById('inquiry-date') ? document.getElementById('inquiry-date').value : '';
+  const venue = document.getElementById('inquiry-venue') ? document.getElementById('inquiry-venue').value.trim() : '';
+  const notes = document.getElementById('inquiry-message') ? document.getElementById('inquiry-message').value.trim() : '';
 
   if (!name || !phone) {
     alert(currentLang === 'bn' ? 'দয়া করে আপনার নাম এবং ফোন নম্বর প্রদান করুন।' : 'Please enter your name and phone number.');
     return;
   }
 
-  const pkg = getSelectedPackageInfo();
-  const isDouble = activeShiftChoice === 'double';
-  const multiplier = (isDouble && !pkg.isRoyal) ? 2 : 1;
-  const calculatedTotal = pkg.price * multiplier;
-
-  let shiftLabel = '';
-  let breakdownText = '';
-
-  if (activeShiftChoice === 'day') {
-    shiftLabel = '☀️ ডে শিফট: দুপুর ১২:০০ PM – বিকাল ৫:০০ PM (১টি শিফট • ৫ ঘণ্টা)';
-    breakdownText = `৳${pkg.price.toLocaleString('en-US')} × 1 (Single Shift Rate • 5 Hours) = ৳${calculatedTotal.toLocaleString('en-US')}`;
-  } else if (activeShiftChoice === 'night') {
-    shiftLabel = '🌙 নাইট শিফট: সন্ধ্যা ৬:০০ PM – রাত ১১:০০ PM (১টি শিফট • ৫ ঘণ্টা)';
-    breakdownText = `৳${pkg.price.toLocaleString('en-US')} × 1 (Single Shift Rate • 5 Hours) = ৳${calculatedTotal.toLocaleString('en-US')}`;
-  } else {
-    shiftLabel = '⚡ ডাবল শিফট (ফুল ডে): দুপুর ১২:০০ PM – রাত ১১:০০ PM (২টি শিফট • দ্বিগুণ মূল্য)';
-    breakdownText = pkg.isRoyal
-      ? `৳${pkg.price.toLocaleString('en-US')} (Royal Mega Collection Fixed Rate)`
-      : `৳${pkg.price.toLocaleString('en-US')} × 2 (Double Shift / Full Day Coverage) = ৳${calculatedTotal.toLocaleString('en-US')}`;
+  if (!venue) {
+    alert(currentLang === 'bn' ? 'দয়া করে আপনার অনুষ্ঠানের ভেন্যুর নাম ও শহর প্রদান করুন।' : 'Please enter your venue name and city.');
+    const vInput = document.getElementById('inquiry-venue');
+    if (vInput) vInput.focus();
+    return;
   }
 
-  // Format WhatsApp Message with explicit pricing breakdown and shift calculation
-  const formattedMsg =
-    `*New Wedding Booking Inquiry - Wedding Affairs*%0A%0A` +
-    `*Client:* ${encodeURIComponent(name)}%0A` +
-    `*Phone:* ${encodeURIComponent(phone)}%0A` +
-    `*Email:* ${encodeURIComponent(email || 'N/A')}%0A` +
-    `*Event Date:* ${encodeURIComponent(date || 'TBD')}%0A` +
-    `*Venue & City:* ${encodeURIComponent(venue || 'TBD')}%0A` +
-    `*Selected Package:* ${encodeURIComponent(pkg.raw)}%0A` +
-    `*Coverage Shift:* ${encodeURIComponent(shiftLabel)}%0A` +
-    `*Shift Pricing Breakdown:* ${encodeURIComponent(breakdownText)}%0A` +
-    `*Total Estimated Amount:* ৳${encodeURIComponent(calculatedTotal.toLocaleString('en-US'))}%0A` +
-    `*Special Notes:* ${encodeURIComponent(notes || 'None')}`;
+  const payload = buildWhatsAppPayload({
+    name: name,
+    phone: phone,
+    email: email,
+    date: date,
+    venue: venue,
+    notes: notes,
+    shiftChoice: activeShiftChoice
+  });
 
-  const studioWhatsAppNumber = '8801772337400'; // Studio WhatsApp (+880 1772-337400)
-  const waUrl = `https://wa.me/${studioWhatsAppNumber}?text=${formattedMsg}`;
+  // Automatically trigger WhatsApp in a new tab/window
+  try {
+    window.open(payload.waUrl, '_blank');
+  } catch (err) {
+    console.error('WhatsApp popup blocked:', err);
+  }
 
-  // Success Modal
+  // Populate Success Modal with matching 6-layer details
   const successModal = document.getElementById('success-modal');
   const detailsBox = document.getElementById('success-modal-details');
 
@@ -1236,32 +1420,36 @@ function handleInquirySubmit(e) {
       <div class="space-y-2 text-sm text-stone-300">
         <div class="flex justify-between border-b border-stone-800 pb-1.5">
           <span class="text-stone-400">নাম:</span>
-          <span class="text-white font-semibold">${name}</span>
+          <span class="text-white font-semibold">${payload.name}</span>
         </div>
         <div class="flex justify-between border-b border-stone-800 pb-1.5">
           <span class="text-stone-400">ফোন:</span>
-          <span class="text-white font-semibold">${phone}</span>
+          <span class="text-white font-semibold">${payload.phone}</span>
         </div>
         <div class="flex justify-between border-b border-stone-800 pb-1.5">
           <span class="text-stone-400">তারিখ:</span>
-          <span class="text-white">${date || 'নির্ধারিত হয়নি'}</span>
+          <span class="text-white">${payload.date}</span>
+        </div>
+        <div class="flex justify-between border-b border-stone-800 pb-1.5">
+          <span class="text-stone-400">ভেন্যু:</span>
+          <span class="text-amber-300 font-medium">${payload.venue}</span>
         </div>
         <div class="flex justify-between border-b border-stone-800 pb-1.5">
           <span class="text-stone-400">শিফট:</span>
-          <span class="text-amber-300 font-medium">${activeShiftChoice === 'double' ? '⚡ ডাবল শিফট (ফুল ডে)' : activeShiftChoice === 'night' ? '🌙 নাইট শিফট (৫ ঘণ্টা)' : '☀️ ডে শিফট (৫ ঘণ্টা)'}</span>
+          <span class="text-amber-300 font-medium">${payload.shiftInfo.title}</span>
         </div>
         <div class="flex justify-between border-b border-stone-800 pb-1.5">
           <span class="text-stone-400">প্যাকেজ:</span>
-          <span class="text-amber-200 font-medium text-right max-w-[220px] truncate">${pkg.raw}</span>
+          <span class="text-amber-200 font-medium text-right max-w-[220px] truncate">${payload.pkg.fullNameBn || payload.pkg.raw}</span>
         </div>
         <div class="p-3 rounded-xl bg-black/60 border border-amber-500/40 mt-2 space-y-1">
           <div class="flex justify-between text-xs text-stone-300">
             <span>হিসাব ব্রেকডাউন:</span>
-            <span class="font-mono text-amber-300 text-right">${breakdownText}</span>
+            <span class="font-mono text-amber-300 text-right">${payload.shiftInfo.math}</span>
           </div>
           <div class="flex justify-between text-base font-bold text-amber-300 pt-1.5 border-t border-stone-800">
-            <span>আনুমানিক মোট:</span>
-            <span class="font-cormorant text-2xl font-bold">৳ ${calculatedTotal.toLocaleString('en-US')}</span>
+            <span>আনুমানিক মোট বাজেট:</span>
+            <span class="font-cormorant text-2xl font-bold">৳ ${payload.totalBn}</span>
           </div>
         </div>
       </div>
@@ -1270,7 +1458,7 @@ function handleInquirySubmit(e) {
 
   const directWaBtn = document.getElementById('whatsapp-direct-btn');
   if (directWaBtn) {
-    directWaBtn.href = waUrl;
+    directWaBtn.href = payload.waUrl;
   }
 
   if (successModal) {
@@ -1278,9 +1466,17 @@ function handleInquirySubmit(e) {
   }
 
   // Reset form and reset shift to 'day'
-  document.getElementById('inquiry-form').reset();
+  const inqForm = document.getElementById('inquiry-form');
+  if (inqForm) inqForm.reset();
   setShiftChoice('day');
 }
+
+// Global direct WhatsApp sender for secondary contact buttons
+function sendWhatsAppFromForm(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  handleInquirySubmit(e);
+}
+
 
 function closeSuccessModal() {
   document.getElementById('success-modal').classList.add('hidden');
@@ -1489,6 +1685,45 @@ function showArtistToast(name, role) {
 }
 
 // --- Initialize Everything on DOM Ready ---
+
+
+// --- Payment Panel & Copy Helper Functions ---
+function togglePaymentSection() {
+  const panel = document.getElementById('quick-payment-details-panel');
+  const arrow = document.getElementById('pm-toggle-arrow');
+  if (panel) {
+    const isHidden = panel.classList.contains('hidden');
+    if (isHidden) {
+      panel.classList.remove('hidden');
+      if (arrow) arrow.style.transform = 'rotate(180deg)';
+    } else {
+      panel.classList.add('hidden');
+      if (arrow) arrow.style.transform = 'rotate(0deg)';
+    }
+  }
+}
+
+function copyPaymentText(text, btnElement) {
+  if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      if (btnElement) {
+        const origText = btnElement.innerHTML;
+        btnElement.innerHTML = '✓ কপি হয়েছে!';
+        btnElement.classList.add('bg-emerald-600', 'text-white');
+        setTimeout(function() {
+          btnElement.innerHTML = origText;
+          btnElement.classList.remove('bg-emerald-600', 'text-white');
+        }, 2000);
+      }
+    }).catch(function(e) {
+      prompt('কপি করতে Ctrl+C চাপুন:', text);
+    });
+  } else {
+    prompt('কপি করতে Ctrl+C চাপুন:', text);
+  }
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   setupGalleryTabs();
@@ -1529,6 +1764,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Form listeners
   document.getElementById('quick-avail-form')?.addEventListener('submit', checkDateAvailability);
   document.getElementById('inquiry-form')?.addEventListener('submit', handleInquirySubmit);
+
+  // Wire secondary WhatsApp button in #contact
+  const secondaryWaBtn = document.querySelector('#contact a[href*="wa.me/8801772337400"]');
+  if (secondaryWaBtn) {
+    secondaryWaBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      handleInquirySubmit(e);
+    });
+  }
 
   // Calculator listeners
   document.getElementById('calc-days')?.addEventListener('input', calculateCustomCost);

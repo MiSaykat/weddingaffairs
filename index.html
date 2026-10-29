@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -1389,10 +1389,167 @@
         </div>
       </div>
 
-      <!-- FAQ Accordion List -->
+            <!-- 50% Advance Booking Notice Banner -->
+      <div class="glass-card rounded-2xl p-6 sm:p-7 border border-amber-400/50 bg-gradient-to-br from-amber-950/40 via-stone-900/95 to-stone-950 shadow-2xl relative overflow-hidden mb-8">
+        <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 relative z-10">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2.5">
+              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-amber-400/20 text-amber-300 text-sm border border-amber-400/40 shadow">🔒</span>
+              <span class="text-xs uppercase tracking-widest font-bold text-amber-300">অফিসিয়াল বুকিং পলিসি • 50% Advance Policy</span>
+            </div>
+            <h3 class="font-cormorant text-2xl sm:text-3xl font-bold text-white leading-tight">
+              যেকোনো প্যাকেজে <span class="text-amber-300">৫০% বুকিং মানি</span> প্রদান করে ডেট কনফার্ম করতে হয়
+            </h3>
+            <p class="text-xs sm:text-sm text-stone-300 max-w-2xl leading-relaxed">
+              Wedding Affairs-এর যেকোনো প্যাকেজে আপনার কাঙ্ক্ষিত তারিখ ও প্রফেশনাল টিমকে শতভাগ নিশ্চিতভাবে সংরক্ষিত (Lock) করতে <strong>৫০% অগ্রিম বুকিং মানি</strong> প্রদান করতে হয়। অবশিষ্ট ৫০% পেমেন্ট ইভেন্ট সম্পন্ন হওয়ার দিন অথবা ডেলিভারির পূর্বে পরিশোধযোগ্য।
+            </p>
+          </div>
+          <div class="shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <a href="#contact" class="btn-gold px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-center shadow-lg">
+              তারিখ বুক করুন
+            </a>
+            <button type="button" onclick="togglePaymentSection()" class="px-5 py-3 rounded-full bg-stone-900/90 hover:bg-stone-800 text-amber-300 text-xs font-semibold border border-amber-400/40 transition text-center flex items-center justify-center gap-2 shadow">
+              <span>💳 পেমেন্ট মেথড দেখুন</span>
+              <svg id="pm-toggle-arrow" class="w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Optional Payment Info Panel (Expandable) -->
+        <div id="quick-payment-details-panel" class="hidden mt-6 pt-6 border-t border-amber-500/20 space-y-4">
+          <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200/90 flex items-start gap-2.5">
+            <span class="text-base">💬</span>
+            <span><strong>পরামর্শ (Optional Flow):</strong> বুকিং মানি পাঠানোর পূর্বে অনুগ্রহ করে প্রথমে আমাদের সাথে <strong>WhatsApp-এ কথা বলে</strong> আপনার অনুষ্ঠানের তারিখ ও পছন্দের প্যাকেজ চূড়ান্ত করে নিন। সবকিছু নিশ্চিত হওয়ার পর ৫০% বুকিং মানি পরিশোধের জন্য নিচের মেথডগুলো ব্যবহার করুন:</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <!-- bKash -->
+            <div class="bg-black/70 rounded-xl p-4 border border-stone-800 space-y-2.5 relative">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-pink-400 text-sm flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-pink-500"></span> বিকাশ (bKash)
+                </span>
+                <span class="text-[10px] text-stone-400 bg-stone-900 px-2 py-0.5 rounded border border-stone-800">পার্সোনাল</span>
+              </div>
+              <div class="font-mono text-base text-white tracking-wider font-bold py-1 select-all">+8801772337400</div>
+              <button type="button" onclick="copyPaymentText('+8801772337400', this)" class="w-full py-2 rounded-lg bg-pink-500/15 text-pink-300 hover:bg-pink-500 hover:text-white border border-pink-500/30 transition text-[11px] font-semibold flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+                <span>নম্বর কপি করুন</span>
+              </button>
+            </div>
+
+            <!-- Nagad -->
+            <div class="bg-black/70 rounded-xl p-4 border border-stone-800 space-y-2.5 relative">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-orange-400 text-sm flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-orange-500"></span> নগদ (Nagad)
+                </span>
+                <span class="text-[10px] text-stone-400 bg-stone-900 px-2 py-0.5 rounded border border-stone-800">পার্সোনাল</span>
+              </div>
+              <div class="font-mono text-base text-white tracking-wider font-bold py-1 select-all">+8801772337400</div>
+              <button type="button" onclick="copyPaymentText('+8801772337400', this)" class="w-full py-2 rounded-lg bg-orange-500/15 text-orange-300 hover:bg-orange-500 hover:text-white border border-orange-500/30 transition text-[11px] font-semibold flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+                <span>নম্বর কপি করুন</span>
+              </button>
+            </div>
+
+            <!-- Bank Details (Pubali Bank PLC) -->
+            <div class="bg-black/70 rounded-xl p-4 border border-stone-800 space-y-2.5 relative">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-emerald-400 text-sm flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span> ব্যাংক ট্রান্সফার
+                </span>
+                <span class="text-[10px] text-stone-400 bg-stone-900 px-2 py-0.5 rounded border border-stone-800">Pubali Bank</span>
+              </div>
+              <div class="space-y-1 text-stone-300 text-[11px] leading-relaxed">
+                <div><span class="text-stone-400">ব্যাংক:</span> <strong class="text-white">Pubali Bank PLC</strong></div>
+                <div><span class="text-stone-400">শাখা:</span> Rangpur Branch</div>
+                <div><span class="text-stone-400">হিসাব নাম:</span> <strong class="text-amber-200">Raisa Samad</strong></div>
+                <div><span class="text-stone-400">হিসাব নং:</span> <strong class="font-mono text-amber-300 tracking-wider">2160101109565</strong></div>
+                <div><span class="text-stone-400">রাউটিং নং:</span> <span class="font-mono text-stone-300">175851450</span></div>
+              </div>
+              <button type="button" onclick="copyPaymentText('2160101109565', this)" class="w-full py-2 rounded-lg bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500 hover:text-white border border-emerald-500/30 transition text-[11px] font-semibold flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+                <span>অ্যাকাউন্ট নং কপি করুন</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="text-[11px] text-stone-400 text-center pt-1.5 border-t border-stone-800/60">
+            🧾 পেমেন্ট সম্পন্ন করার পর WhatsApp-এ ট্রানজ্যাকশন আইডি (TrxID) বা স্ক্রিনশট পাঠিয়ে দিলে তাৎক্ষণিকভাবে আপনার নামে অফিসিয়াল কনফার্মেশন মানি রিসিপ্ট প্রদান করা হবে।
+          </div>
+        </div>
+      </div>
+
+<!-- FAQ Accordion List -->
       <div class="space-y-4">
         
-        <!-- FAQ 1 -->
+                <!-- FAQ 0A: 50% Booking Money Policy -->
+        <div class="faq-item glass-card rounded-2xl border border-stone-800 overflow-hidden">
+          <button class="faq-header w-full p-5 text-left flex items-center justify-between text-stone-100 font-semibold text-sm sm:text-base">
+            <span class="text-amber-300 font-bold">🔒 যেকোনো প্যাকেজের বুকিং নিশ্চিত করতে ৫০% বুকিং মানির নিয়ম কী?</span>
+            <svg class="faq-icon w-5 h-5 text-amber-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-content hidden p-5 pt-0 text-xs sm:text-sm text-stone-300 border-t border-stone-800/40 space-y-2.5 leading-relaxed">
+            <p>
+              👑 <strong>৫০% বুকিং মানি পলিসি:</strong> Wedding Affairs-এর যেকোনো প্যাকেজে (প্যাকেজ A থেকে G অথবা রয়্যাল মেগা কালেকশন) আপনার কাঙ্ক্ষিত ইভেন্ট ডেট অফিসিয়ালি লক করতে <strong>৫০% অগ্রিম বুকিং মানি (Fifty Percent Advance)</strong> প্রদান করে বুকিং কনফার্ম করতে হয়।
+            </p>
+            <p>
+              📅 <strong>তারিখ সংরক্ষণের নিশ্চয়তা:</strong> বিয়ের পিক মৌসুমে এক তারিখের জন্য একাধিক ক্লায়েন্টের ইনকোয়ারি এসে থাকে। তাই অগ্রিম বুকিং মানি প্রাপ্তি ছাড়া কোনো তারিখ বা প্রফেশনাল ক্রু টিম রিজার্ভ রাখা সম্ভব হয় না।
+            </p>
+            <p>
+              💰 <strong>অবশিষ্ট ৫০% পরিশোধ:</strong> বাকি ৫০% পেমেন্ট অনুষ্ঠান সম্পন্ন হওয়ার দিন অথবা ছবি ও ভিডিওর ফাইনাল ডেলিভারির পূর্বে পরিশোধ করতে পারবেন।
+            </p>
+            <p class="text-amber-300/90 text-[11px]">
+              🧾 <em>মানি রিসিপ্ট নিশ্চয়তা: বুকিং মানি সফলভাবে প্রাপ্তির সাথে সাথেই আপনার নামে স্টুডিওর অফিসিয়াল ডিজিটাল মানি রিসিপ্ট WhatsApp ও ইমেইলে পাঠিয়ে দেওয়া হয়।</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 0B: Official Payment Methods -->
+        <div class="faq-item glass-card rounded-2xl border border-stone-800 overflow-hidden">
+          <button class="faq-header w-full p-5 text-left flex items-center justify-between text-stone-100 font-semibold text-sm sm:text-base">
+            <span>💳 অফিসিয়াল পেমেন্ট মেথড (Payment Methods) কী কী এবং কীভাবে পরিশোধ করবো?</span>
+            <svg class="faq-icon w-5 h-5 text-amber-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-content hidden p-5 pt-0 text-xs sm:text-sm text-stone-300 border-t border-stone-800/40 space-y-3 leading-relaxed">
+            <p>
+              💬 <strong>পদ্ধতি:</strong> প্রথমে আমাদের সাথে <strong>WhatsApp (+880 1772-337400)</strong>-এ সরাসরি কথা বলে আপনার অনুষ্ঠানের তারিখ ও বাজেট অনুযায়ী উপযুক্ত প্যাকেজ চূড়ান্ত করুন। সবকিছু নিশ্চিত হওয়ার পর ৫০% বুকিং মানি প্রেরণের জন্য নিচের যে কোনো অফিসিয়াল মেথড ব্যবহার করতে পারেন:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-xs">
+              <div class="p-3.5 rounded-xl bg-stone-900 border border-stone-800 space-y-1">
+                <div class="font-bold text-pink-400 flex items-center justify-between">
+                  <span>📱 বিকাশ (bKash)</span>
+                  <span class="text-[10px] text-stone-400">পার্সোনাল</span>
+                </div>
+                <div class="font-mono text-white font-bold select-all text-sm">+8801772337400</div>
+                <button type="button" onclick="copyPaymentText('+8801772337400', this)" class="w-full mt-1.5 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 text-[10px] transition">কপি করুন</button>
+              </div>
+              <div class="p-3.5 rounded-xl bg-stone-900 border border-stone-800 space-y-1">
+                <div class="font-bold text-orange-400 flex items-center justify-between">
+                  <span>📱 নগদ (Nagad)</span>
+                  <span class="text-[10px] text-stone-400">পার্সোনাল</span>
+                </div>
+                <div class="font-mono text-white font-bold select-all text-sm">+8801772337400</div>
+                <button type="button" onclick="copyPaymentText('+8801772337400', this)" class="w-full mt-1.5 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 text-[10px] transition">কপি করুন</button>
+              </div>
+              <div class="p-3.5 rounded-xl bg-stone-900 border border-stone-800 space-y-1">
+                <div class="font-bold text-emerald-400">🏛️ Pubali Bank PLC</div>
+                <div class="text-[11px] text-stone-300">শাখা: Rangpur Branch</div>
+                <div class="text-[11px] text-stone-300">নাম: Raisa Samad</div>
+                <div class="font-mono text-amber-300 font-semibold select-all">A/C: 2160101109565</div>
+                <div class="text-[10px] text-stone-400">Routing: 175851450</div>
+                <button type="button" onclick="copyPaymentText('2160101109565', this)" class="w-full mt-1.5 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 text-[10px] transition">একাউন্ট নং কপি</button>
+              </div>
+            </div>
+            <p class="text-[11px] text-stone-400 pt-1">
+              * টাকা পাঠানোর পর TrxID বা ব্যাংক স্লিপটি আমাদের WhatsApp-এ দিলে সাথে সাথে আপনার ডিজিটাল বুকিং স্লিপ প্রদান করা হবে।
+            </p>
+          </div>
+        </div>
+
+<!-- FAQ 1 -->
         <div class="faq-item glass-card rounded-2xl border border-stone-800 overflow-hidden">
           <button class="faq-header w-full p-5 text-left flex items-center justify-between text-stone-100 font-semibold text-sm sm:text-base">
             <span>কতদিন আগে বুকিং কনফার্ম করা উচিত?</span>
@@ -1800,6 +1957,47 @@
       <div id="success-modal-details" class="p-4 rounded-xl bg-stone-900/90 border border-stone-800 text-left">
         <!-- Filled dynamically -->
       </div>
+      <!-- Optional Payment Details inside Success Modal -->
+      <div class="text-left mt-2">
+        <button type="button" onclick="document.getElementById('modal-pm-box').classList.toggle('hidden')" class="w-full py-2.5 px-4 rounded-xl bg-stone-900/90 hover:bg-stone-800 border border-amber-400/30 text-amber-300 text-xs font-semibold flex items-center justify-between transition">
+          <span>💳 ৫০% বুকিং মানি পাঠানোর মেথডসমূহ (ঐচ্ছিক)</span>
+          <span class="text-xs">▼</span>
+        </button>
+        <div id="modal-pm-box" class="hidden mt-2 p-3.5 rounded-xl bg-black/90 border border-stone-800 space-y-2.5 text-xs text-stone-300">
+          <p class="text-[11px] text-amber-200/90">
+            💡 <em>WhatsApp-এ কথা বলে সব চূড়ান্ত হওয়ার পর ৫০% বুকিং মানি পাঠাতে নিচের অ্যাকাউন্টগুলো ব্যবহার করুন:</em>
+          </p>
+          <div class="space-y-1.5 font-mono text-[11px]">
+            <div class="flex justify-between items-center py-1 border-b border-stone-800/80">
+              <span class="text-pink-400 font-sans">📱 বিকাশ (পার্সোনাল):</span>
+              <strong class="text-white select-all">+8801772337400</strong>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-stone-800/80">
+              <span class="text-orange-400 font-sans">📱 নগদ (পার্সোনাল):</span>
+              <strong class="text-white select-all">+8801772337400</strong>
+            </div>
+            <div class="py-1 space-y-0.5 border-b border-stone-800/80">
+              <div class="flex justify-between font-sans">
+                <span class="text-emerald-400">🏛️ ব্যাংক:</span>
+                <strong class="text-white">Pubali Bank PLC (Rangpur)</strong>
+              </div>
+              <div class="flex justify-between font-sans">
+                <span class="text-stone-400">হিসাব নাম:</span>
+                <span class="text-amber-200 font-medium">Raisa Samad</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-stone-400 font-sans">হিসাব নং:</span>
+                <strong class="text-amber-300 select-all font-semibold">2160101109565</strong>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-stone-400 font-sans">রাউটিং নং:</span>
+                <span class="text-stone-300">175851450</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <div class="space-y-3">
         <a id="whatsapp-direct-btn" href="#" target="_blank" class="w-full btn-gold py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg">
